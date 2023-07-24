@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todos_app/bloc/todos_bloc.dart';
 
-import '../cubit/todos01_cubit.dart';
+
 class MyErrorWidget extends StatelessWidget {
   final String message;
   const MyErrorWidget({Key? key,required this.message}) : super(key: key);
@@ -16,7 +16,7 @@ class MyErrorWidget extends StatelessWidget {
         children: [
           Text(message),
           ElevatedButton(onPressed: (){
-            BlocProvider.of<Todos01Cubit>(context).GetAllTodosFromApi();
+            BlocProvider.of<TodosBloc>(context)..add(GetAllTodosEvent());
           }, child: Text('try again'))
         ],
       ),
